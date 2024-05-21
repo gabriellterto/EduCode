@@ -1,0 +1,465 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Radio+Canada+Big:ital,wght@0,400..700;1,400..700&display=swap');
+
+:root {
+  --cor-base: #838FFC;
+  --cor-tom: #5691E3;
+  --cor-destaque-1: #A456E3;
+  --cor-destaque-2: #7656E3;
+  --cor-dark: #202B45;
+  --cor-branco: #F4F1F8;
+  --cor-preto: #1A2228;
+
+  --cor-shadow-tom-forte: rgba(86, 145, 227, 0.8);
+  --cor-shadow-tom-fraco: rgba(86, 145, 227, 0.5);
+  --cor-shadow-dark-forte: rgba(32, 43, 69, 0.8);
+  --cor-shadow-dark-fraco: rgba(32, 43, 69, 0.5);
+
+  --fonte-titulo: "Radio Canada Big", sans-serif;
+  --fonte-padrao: "Montserrat", sans-serif;
+
+  --clamp-texto-padrao: clamp(1rem, 0.8269rem + 0.7692vw, 1.75rem);
+  --clamp-titulo-1: clamp(1.75rem, 1.4615rem + 1.2821vw, 3rem);
+  --clamp-titulo-2: clamp(1.5rem, 1.2692rem + 1.0256vw, 2.5rem);
+  --clamp-titulo-3: clamp(1.25rem, 1.0192rem + 1.0256vw, 2.25rem);
+
+  --clip-direita: polygon(25% 0%, 100% 0%, 100% 100%, 20% 89%, 0% 50%);
+  --clip-esquerda: polygon(0% 0%, 75% 0%, 100% 50%, 66% 91%, 0% 100%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  max-width: 100vw;
+  min-width: 360px;
+  height: auto;
+  min-height: 100%;
+  /* overflow-x: hidden; */
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  /* Retirar*/
+  /* background-color: var(--cor-base); */
+}
+
+a {
+  text-decoration: none;
+}
+
+
+/* Menu top */
+
+.cabeca {
+  width: 100%;
+  padding: 0 10%;
+  position: fixed;
+  top: 20px;
+  z-index: 15;
+}
+
+.cabecaConteudo {
+  height: 64px;
+  min-width: 775px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgba(244, 241, 248, 0.3);
+  padding: 0 30px;
+  border-radius: 40px;
+  background-blend-mode: luminosity;
+}
+
+.cabecaLogo {
+  width: auto;
+  height: 24px;
+}
+
+.cabecaLogo:hover {
+  cursor: pointer;
+  scale: 1.2;
+  transition: all 200ms ease-in-out;
+}
+
+.navBar {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.navBarLink {
+  font-family: var(--fonte-padrao);
+  color: var(--cor-dark);
+  font-size: 24px;
+  font-weight: 600;
+  padding: 5px 10px;
+}
+
+.matriculaLink {
+  width: 135px;
+  text-align: center;
+}
+
+.sobreLink {
+  width: 90px;
+}
+
+.navBarLink:hover {
+  background-color: var(--cor-dark);
+  color: var(--cor-branco);
+  border-radius: 20px;
+  transition: all 200ms ease-in-out;
+}
+
+.linkAtivo {
+  background-color: var(--cor-base);
+  color: var(--cor-branco);
+  border-radius: 20px;
+  pointer-events: none;
+}
+
+.navBarLink:active {
+  background-color: var(--cor-base);
+  color: var(--cor-branco);
+  border-radius: 20px;
+}
+
+.loginLink {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cabecaLogin {
+  width: auto;
+  height: 24px;
+}
+
+.cabecaBtnMobile,
+.cabecaConteudoMobile {
+  display: none;
+}
+
+
+/* roda pé */
+
+.rodape {
+  width: 100%;
+  height: auto;
+  padding: 50px 10%;
+  background-color: var(--cor-dark);
+  bottom: 0;
+  z-index: 14;
+}
+
+.rodapeConteudo {
+  display: flex;
+  justify-content: space-around;
+  z-index: 14;
+}
+
+.rodapeBrand {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.rodapeLogo {
+  width: 150px;
+  height: auto;
+}
+
+.rodapeBrandTexto {
+  font-family: var(--fonte-padrao);
+  color: var(--cor-branco);
+  font-size: clamp(0.75rem, 0.6923rem + 0.2564vw, 1rem);
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+.rodapeContatos {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+}
+
+.subscribe {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.subscribeTexto {
+  font-family: var(--fonte-padrao);
+  color: var(--cor-branco);
+  font-size: clamp(0.75rem, 0.6923rem + 0.2564vw, 1rem);
+  font-weight: 500;
+}
+
+.subscribeBox {
+  display: flex;
+}
+
+.subscribeInput {
+  width: 200px;
+  height: 48px;
+  font-family: var(--fonte-padrao);
+  border: solid 3px var(--cor-preto);
+  outline-color: var(--cor-tom);
+  padding: 5px 10px;
+}
+
+.subscribeBtn {
+  width: 48px;
+  height: 48px;
+  background-color: var(--cor-branco);
+  border: solid 3px var(--cor-preto);
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  background-image: url("../Assets/imagens/favicon.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 50%;
+  box-shadow: none;
+  cursor: pointer;
+}
+
+.subscribeBtn:hover {
+  border: solid 5px var(--cor-tom);
+}
+
+.contatosRedes {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.redes {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.social {
+  width: 48px;
+  height: 48px;
+}
+
+.nomeRedes {
+  font-family: var(--fonte-padrao);
+  color: var(--cor-branco);
+  font-weight: 600;
+  font-size: 16px;
+}
+
+/* especificos */
+
+.linkedin {
+  background-image: url("../Assets/imagens/linkedin.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.linkedin:hover {
+  background-image: url("../Assets/imagens/linkedinHov.png");
+  scale: 0.95;
+  transition: all 200ms ease-in-out;
+}
+
+.github {
+  background-image: url("../Assets/imagens/github.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.github:hover {
+  background-image: url("../Assets/imagens/githubHov.png");
+  scale: 0.95;
+  transition: all 200ms ease-in-out;
+}
+
+.instagram {
+  background-image: url("../Assets/imagens/instagram.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.instagram:hover {
+  background-image: url("../Assets/imagens/instagramHov.png");
+  scale: 0.95;
+  transition: all 200ms ease-in-out;
+}
+
+/*  fim especificos */
+
+
+
+/* Media Querry */
+
+@media (max-width: 890px) {
+
+  .cabeca {
+    padding: 0;
+    left: 20px;
+
+  }
+
+  .cabecaConteudo {
+    display: none;
+  }
+
+  .cabecaBtnMobile {
+    display: block;
+    height: 48px;
+    width: 48px;
+    background-color: rgba(244, 241, 248, 0.3);
+    border: none;
+    border-radius: 50px;
+
+  }
+
+  .mobileSimbolo {
+    height: 32px;
+    width: auto;
+  }
+
+
+  /* modal do mobile */
+  .cabecaModalPrincipal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+  }
+
+  .fundoModal {
+    background-color: rgba(26, 34, 40, 0.6);
+    transition: all 1ms;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+  }
+
+  .cabecaConteudoMobile {
+    width: 50%;
+    height: 50%;
+    max-width: 300px;
+    min-width: 180px;
+    position: absolute;
+    background-color: var(--cor-branco);
+    border-bottom-right-radius: 50px;
+    display: block;
+    left: -500px;
+    z-index: 2;
+    /* pointer-events: none; */
+  }
+
+  .cabecaFecharMobile {
+    width: 48px;
+    height: 48px;
+    border: none;
+    position: absolute;
+    background-color: transparent;
+    top: 20px;
+    left: 20px;
+  }
+
+  .fecharMobile {
+    height: 32px;
+    width: auto;
+  }
+
+  .cabecaLogoNobile {
+    width: auto;
+    height: 28px;
+    margin: 100px 0 0 20px;
+  }
+
+  .navBarMobile {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 20px 0 0 20px;
+    gap: 10px;
+  }
+
+  .navBarLinkMobile {
+    font-family: var(--fonte-padrao);
+    font-weight: 600;
+    color: var(--cor-dark);
+    font-size: 20px;
+  }
+
+  .linkLoginMobile {
+    display: flex;
+    gap: 5px;
+  }
+
+  .cabecaLoginMobile {
+    width: auto;
+    height: 24px;
+  }
+
+  .open {
+    animation: abrir 500ms linear;
+    left: 0;
+  }
+
+  .close {
+    animation: fechar 500ms linear;
+    left: -500px;
+  }
+
+  .clicado {
+    display: none;
+  }
+
+  .rodapeConteudo {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 20px;
+  }
+
+
+  @keyframes abrir {
+    0% {
+      left: -500px;
+    }
+
+    100% {
+      left: 0;
+    }
+  }
+
+  @keyframes fechar {
+    0% {
+      left: 0;
+    }
+
+    100% {
+      left: -500px;
+    }
+  }
+
+}
